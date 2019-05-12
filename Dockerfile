@@ -15,4 +15,5 @@ RUN apt-get update \
   && export AWS_REGION=$(grep REGION /run/metadata/coreos|cut -d= -f2) \
   && export AWS_DEFAULT_REGION=$AWS_REGION
 
-VOLUME [ "/target" ]
+ENTRYPOINT ["/opt/confd/bin/confd"]
+CMD ["-onetime", "-backend=ssm"]
