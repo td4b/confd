@@ -11,9 +11,7 @@ RUN apt-get update \
   && mkdir -p /opt/confd/bin \
   && mv confd-0.16.0-linux-amd64 /opt/confd/bin/confd \
   && chmod +x /opt/confd/bin/confd \
-  && export PATH=$PATH:/opt/confd/bin \
-  && export AWS_REGION=$(grep REGION /run/metadata/coreos|cut -d= -f2) \
-  && export AWS_DEFAULT_REGION=$AWS_REGION
+  && export PATH=$PATH:/opt/confd/bin 
 
 ENTRYPOINT ["/opt/confd/bin/confd"]
 CMD ["-onetime", "-backend=ssm"]
