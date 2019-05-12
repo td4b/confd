@@ -13,4 +13,5 @@ RUN apt-get update \
   && chmod +x /opt/confd/bin/confd \
   && export PATH=$PATH:/opt/confd/bin 
 
-ENTRYPOINT ["bin/bash"]
+ENTRYPOINT ["/opt/confd/bin/confd"]
+CMD ["-daemon","-backend=ssm"]
