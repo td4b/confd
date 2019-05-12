@@ -14,4 +14,4 @@ RUN apt-get update \
   && export PATH=$PATH:/opt/confd/bin 
 
 ENTRYPOINT ["/opt/confd/bin/confd"]
-CMD ["-daemon","-backend=ssm"]
+CMD ["-backend=ssm"]
